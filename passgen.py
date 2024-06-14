@@ -1,5 +1,5 @@
 # import libs
-from random import randint
+from random import choice
 from rich.console import Console
 import passgencfg
 
@@ -12,27 +12,16 @@ try:
 except ValueError:
     print('error. password length must be an integer.')
 
-password_symbols_pull = str()
+password_symbols_pull = ''.join([
+    passgencfg.numbers if passgencfg.include_numbers else '',
+    passgencfg.letters if passgencfg.include_letters else '',
+    passgencfg.capital_letters if passgencfg.include_capital_letters else '',
+    passgencfg.special_chars if passgencfg.include_special_chars else ''
+])
 
-if passgencfg.include_numbers:
-    password_symbols_pull += passgencfg.numbers
-if passgencfg.include_letters:
-    password_symbols_pull += passgencfg.letters
-if passgencfg.include_capital_letters:
-    password_symbols_pull += passgencfg.capital_letters
-if passgencfg.include_special_chars:
-    password_symbols_pull += passgencfg.special_chars
-
-password = str()
-
-try:
-    for i in range(password_length):
-        symbol = password_symbols_pull[randint(
-            0, len(password_symbols_pull)-1)]
-        password += symbol
-except ValueError:
+if not password_symbols_pull:
     print('error. no symbols selected in passgencfg.py')
-except:
-    print('error.')
-
-print(password)
+else:
+    password = ''.join([choice(password_symbols_pull)
+                       for _ in range(password_length)])
+    print(password)
