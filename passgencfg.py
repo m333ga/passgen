@@ -5,5 +5,5 @@ special_chars = '!@#$%^&*()_+-=[{]};:",.<>/?'
 
 include_numbers = True
 include_letters = True
-include_capital_letters = True
-include_special_chars = True
+include_capital_letters = False
+include_special_chars = False
