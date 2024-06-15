@@ -24,4 +24,4 @@ if not password_symbols_pull:
 else:
     password = ''.join([choice(password_symbols_pull)
                        for _ in range(password_length)])
-    print(password)
+    print(f'password\n')
