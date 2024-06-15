@@ -1,3 +1,4 @@
 venv
 passgen.code-workspace
 autogit.sh
+__pycache__
