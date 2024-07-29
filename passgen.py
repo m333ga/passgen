@@ -2,13 +2,17 @@
 from random import choice
 import passgencfg
 
+
 # print intro
 print('~'*3, 'PASSGEN', '~'*3)
+
 
 try:
     password_length = int(input('password length: '))
 except ValueError:
     print('error. password length must be an integer.')
+except:
+    print('error.')
 
 password_symbols_pull = ''.join([
     passgencfg.numbers if passgencfg.include_numbers else '',
