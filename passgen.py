@@ -1,11 +1,9 @@
 # import libs
 from random import choice
-from rich.console import Console
 import passgencfg
 
 # print intro
-console = Console()
-console.print('~ PASSGEN ~', style='bold red')
+print('~'*3, 'PASSGEN', '~'*3)
 
 try:
     password_length = int(input('password length: '))
